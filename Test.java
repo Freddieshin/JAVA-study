@@ -2,162 +2,351 @@ import javax.naming.Name;
 
 public class Test {
   public static void main(String[] args) {
-    double[] a = {100};
-    System.out.println(100);
+
+    char grade = 'A';
+    switch (grade) {
+      case 'A':
+        System.out.println("Excellent");
+        break;
+      case 'B':
+        System.out.println("Good");
+        break;
+      case 'C':
+        System.out.println("Average");
+        break;
+      case 'D':
+        System.out.println("Below Average");
+        break;
+      case 'F':
+        System.out.println("Fail");
+        break;
+    }
+
+    char operator = '+';
+    int num1 = 1, num2 = 2;
+    switch (operator) {
+      case '+':
+        System.out.println(num1 + num2);
+        break;
+      case '-':
+        System.out.println(num1 - num2);
+        break;
+      case '*':
+        System.out.println(num1 * num2);
+        break;
+      case '/':
+        System.out.println(num1 / num2);
+        break;
+    }
+
+    String color = "red"; // String은 "쌍따옴표"
+    switch (color) {
+      case "red":
+        System.out.println("Apple");
+        break;
+      case "green":
+        System.out.println("Grass");
+        break;
+      case "blue":
+        System.out.println("Sky");
+        break;
+    }
+
+    int score = 100;
+    switch (score / 10) {
+      case 10:
+        System.out.println('A');
+        break;
+      case 9:
+        System.out.println('A');
+        break;
+      case 8:
+        System.out.println('B');
+        break;
+      case 7:
+        System.out.println('C');
+        break;
+      case 6:
+        System.out.println('D');
+        break;
+      default:
+        System.out.println('F');
+    }
+
+    String programing = "java";
+    switch (programing) {
+      case "java":
+        System.out.println("java is");
+        break;
+      case "Python":
+        System.out.println("Python is");
+        break;
+      case "C++":
+        System.out.println("C++ is");
+        break;
+      case "javascript":
+        System.out.println("javascript is");
+        break;
+        // 퀴즈 실습
+    }
   }
 }
-//데일리 퀴즈 구현하기
 
-/*  String firstname = "jae min";
-    String secondName = "jae min";
-    String phone = "nothing";
-    String status = "chaos";
-    System.out.println(firstname==secondName);
-    / ==연산자를 이용한 퀴즈
+/*
+int number1 = 10;
+int number2 = 3;
 
-    String a = "hello";
-    String b = new String("hello");
+int sum = number1 + number2;
+int diff1 = number1 - number2;
+int diff2 = number1 - number2;
 
-    System.out.println(a.equals(b)); // true
-    System.out.println(a == b); // false
+int product = number1 * number2;
+int quotient = number1 / number2;
+int remainder = number1 % number2;
+//int가 정수타입이므로 실수가 아닌 정수가 출력됨
 
-    String a = "Hello World!";
-    System.out.println(a.indexOf("!"));
+System.out.println("덧셈: " + sum);
+System.out.println("뺄셈1: " + diff1);
+System.out.println("뺄셈2: " + diff2);
+System.out.println("곱셈: " + product);
+System.out.println("나눗셈: " + quotient);
+System.out.println("나머지: " + remainder);
 
-    String a = "Hello World!";
-    String b = "estsoft";
-    System.out.println(b.contains("soft"));
-    / SOFT를 포함한 예제만들기
+byte a = 1;
+byte b = 1;
+byte c = a + b; // 에러. byte는 int로 변환 후 연산되기 때문
+int c = a + b;
 
-    String findChar = "What is your hobby";
-    System.out.println(
-            findChar.charAt(12)  + ""
-                    + findChar.charAt(13)
-                    + ""
-                    + findChar.charAt(14)
-                    + ""
-                    + findChar.charAt(15)
-                    + ""
-                    + findChar.charAt(16));
-    / 특정위치를 통한 hobby 출력하기
+int a = 10;
+int b = 4;
+int c = a / b;  // 2
+double d = (double) a / b;   // 2.0
 
-    String a = "Hello World! Hello World! Hello World! Hello World!";
-    System.out.println(a.replaceAll("World", "java"));
+System.out.println(d);
 
-    String a = "WEEEE ASKE ;ND";
-    System.out.println(a.substring(0,3) + a.substring(8,10)+ a.substring(12,14));
-    / WEEKEND 뽑아내기
+char c1 = 'A' + 1;   // 'B' (유니코드 66은 문자 B)
+char c2 = 'A';
+char c3 = c2 + 1;   // 에러
 
-    //a.split에서 커서찍고 Alt+Enter
+String str1 = "안녕하세요";
+String str2 = str1 + "반나서 반갑습니다.";
+String str3 = str1 + str2;
 
-    String a = "a:b:c:d";
-    String[] split = a.split();
+System.out.println(str3);
 
-    String result = "Hello";
-    System.out.println(result.concat("!"));   // 결과 : Hello!
-    result = result + "!"; // 결과 : Hello! (동일)
-    //콘캣과 + 연산은 동일 결과
+// 문자열 "Hello"와 123이 먼저 연산되어 "Hello123"이 되고,
+// 이것을 다시 456과 연산하여 "Hello123456"이 됩니다.
+System.out.println("Hello" + 123 + 456); // Hello123456
 
-    String name1 = "Tim";
-    int age1 = 30;
+// 숫자 123과 456이 먼저 연산되어 579가 되고,
+// 이것을 문자열 "Hello"와 연산하여 "579Hello"가 됩니다.
+System.out.println(123 + 456 + "Hello"); // 579Hello
+// 왼쪽부터 오른쪽으로 출력 그러니까 숫자 부터 계산이 됨.
+StringBuilder sb = new StringBuilder();
+sb.append(123);
+sb.append(456);
+sb.append("Hello");
+System.out.println(sb);
 
-    String name2 = "Anna";
-    int age2 = 45;
+int number = 10;
+int number2 = 30;
 
-    String d1 = String.format("%s의 나이는 %s세 입니다", name1, age1);
-    String d2 =  String.format("%s의 나이는 %s세 입니다", name2, age2);
-    System.out.println(d1);
-    System.out.println(d2);
+System.out.println(number2==number);
 
-    String result = " ";
-    result += "hello";
-    result += "java";
-    result += "world";
-    System.out.println(result);
+/*System.out.println(number > number2);
+System.out.println(number2 > number);
+System.out.println(number >=number2);
+System.out.println(number>= number2);
 
-    StringBuilder sb = new StringBuilder();
-    sb.append("hello");
-    sb.append("java");
-    sb.append("world");
-    System.out.println(sb);
+String a = new String();
+String b = new String();
 
-    StringBuffer sf = new StringBuffer();
-    sf.append("hello");
-    sf.append("java");
-    sf.append("world");
-    System.out.println(sf);
+System.out.println(a.equals(b));
+// String은 참조타입으로 각기 다른 주소값을 가지고 있으므로, 이퀄을써서 비교해야함
 
-    StringBuffer sb = new StringBuffer();
-    sb.append("hello");
-    sb.insert(0, "world");
-    sb.insert(0, "world");
-    sb.insert(0, "world");
-    sb.insert(0, "world");
-    System.out.println(sb);
+// ! 중요 String의 hip 개념
+String str1 = "Hello";
+String str2 = "Hello";
+// str 1과 2는 동일한 "문자열 Hello"를 가지고 있어 바라보는 객체가 같음.
+String str3 = new String("Hello");
+// str3는 문자열이 틀리므로 1,2가 다른 주소값을 가짐.
+System.out.println(str1 == str2); // true
+System.out.println(str1 == str3); // false
 
-    String[] arr2 = new String [1000];
-    System.out.println(arr2[0]);
-    / 1000의 값을 가진 배열 만들기
+System.out.println(true && false);
+System.out.println(true && false);
+System.out.println(false && true);
+System.out.println(false && false);
+// AND
+System.out.println(true || false);
+System.out.println(true || false);
+System.out.println(false || true);
+System.out.println(false || false);
+// OR
 
-    int positive = 10;
-    int negative = 10;
+System.out.println(true ^ !false);
+System.out.println(true ^ !false);
+System.out.println(false ^ !true);
+System.out.println(false ^ !false);
 
-    System.out.println("양의 부호 연산자 적용: "+(positive));
-    System.out.println("음의 부호 연산자 적용: "+(-positive));
-    System.out.println("음의 부호 연산로 부호 반전: "+(+negative));
-    System.out.println("음의 부호 연산자 다시 부호 반전: "+(-negative));
+//  x는 5보다 크고 13보다 작다.
+x > 5 && x < 13
+//  i는 2의 배수이면서 3의 배수이다.
+i% 2 == 0 && i% 3 == 0
+//  x는 30의 배수이면서 2의 배수이다.
+x% 30 == 0 && x% 2 ==0 || x% 5 ==0 , (x % 30 == 0) && ((x % 2 ==0 ) || (x%5==0))
 
-    int x = 5;
-    int y = 5;
+System.out.println(1|1);
+System.out.println(1|0);
+System.out.println(0|0);
+System.out.println(1^~1);
+System.out.println(1^~0);
+System.out.println(0^~0);
 
-    System.out.println("전위 증가 연산자: "+ (++x));
-    System.out.println("후위 증가 연산자: "+ (y++));
-    System.out.println("==========");
-    System.out.println("x는"+x);
-    System.out.println("y는"+y);
+int score = 95;
+char grade = (score > 90) ? 'A' : 'B';
+System.out.println(grade);
 
-    int a = 100;
-    int b = 100;
+// Score는 95점 이고, 5의 배수이면 "good"을 아니라면, "bad"를 출력하세요
+int score = 95;
+String grade = (score == 95) && (score % 5 == 0) ? 'good' : 'bad';
+System.out.println(grade);
 
-    System.out.println("전위 감소 연산자: "+ (--a));
-    System.out.println("후위 감소 연산자: "+ (b--));
-    System.out.println("전위 감소 연산자: "+ (--a));
-    System.out.println("후위 감소 연산자: "+ (b--));
-    System.out.println("전위 감소 연산자: "+ (--a));
-    System.out.println("후위 감소 연산자: "+ (b--));
-    /전위,후위 연산자 퀴즈
 
-    boolean  israining = true;
-
-    if(israining){
-      System.out.println("하늘에서 비가와요");
-    }
-    if(!israining){
-      System.out.println("하늘이 맑아요");
-    }
-    boolean issunuy = false;
-
-    if(!issunuy){
-      System.out.println("날씨가 맑아요");
-    }
-    else{
-      System.out.println("집에서 쉬어야죠");
+    int score = 95;
+    char grade;
+    if (score > 90) {
+      grade = 'A';
+    } else {
+      grade = 'B';
     }
 
-        boolean  israining = true;
+    System.out.println("당신의 학점은 : " + grade);
+    //    간단한 조건문은 삼항연산자로 가능하지만 길고 복잡하면 if문 사용
 
-    if(israining){
-      System.out.println("하늘에서 비가와요");
-    }
-    if(!israining){
-      System.out.println("하늘이 맑아요");
-    }
-    boolean issunuy = false;
 
-    if(!issunuy){
-      System.out.println("날씨가 맑아요");
+    int a =10;
+    int b =9;
+    if(a>b){
+      System.out.println("a is greater than b");
     }
-    else{
-      System.out.println("집에서 쉬어야죠");
-      /블룬 예제
+    else if (a==b){
+      System.out.println("a and b are equal");
+    }
+    else {
+    System.out.println("a is less than b");
+    // 실습
+    System.out.println(a>b ? "a is greater than b" : (a < b) ? "a is less than b" : "a and b are equal";
+    // 삼항연산자로 변환
+
+   // 퀴즈
+    int x = 10;
+    if (x > 0) {
+      System.out.println("x는 양수입니다");
+    } else if (x < 0) {
+      System.out.println("x는 음수입니다.");
+    } else {
+      System.out.println("x는 0입니다");
+    }
+    System.out.println(x > 0 ? "x는 양수입니다" : x < 0 ? "x는 음수입니다." : "x는 0입니다");
+
+    int score = 75;
+    if (score >= 90) {
+      System.out.println("A");
+    } else if (score >= 80) {
+      System.out.println("B");
+    } else if (score >= 70) {
+      System.out.println("C");
+    } else if (score >= 60) {
+      System.out.println("D");
+    } else {
+      System.out.println("F");
+    }
+
+    int year = 2023;
+    if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
+      System.out.println("윤년 입니다.");
+    } else {
+      System.out.println("윤년이 아닙니다.");
+    }
+
+    int a = 10, b = 20, c = 30;
+    if (a >= b) {
+      if (a >= c) {
+        System.out.println(a);
+      } else {
+        System.out.println(c);
+      }
+    } else {
+      if (b >= c) {
+        System.out.println(b);
+      } else {
+        System.out.println(c);
+      }
+    }
+
+    int passScore = 60;
+    int myScore = 75;
+    if(myScore >= passScore){
+      System.out.println("합격");
+    } else{
+      System.out.println("불합격");
+    }
+    System.out.println(myScore >= passScore ? "합격" : "불합격");
+    // 퀴즈 실습
+
+
+    int a = 10;
+    int b = 5;
+
+    boolean result1 = (a > 5) && (b < 10); // true && true -> true
+    boolean result2 = (a > 5) || (b > 10); // true || flase -> true
+    boolean result3 = !(a > 5); // !true -> flase
+
+    int three = 3;
+    int five = 5;
+    int tow = 2;
+
+    boolean result = (five > three) || (five < tow) && (five < three);
+    // true || flase && flase -> ture // OR는 하나라도 true가 있으면 트루
+    // && 와 ||중에는 &&가 우선처리순서를 가진다.
+
+    boolean x = true;
+    boolean y = false;
+    boolean z = true;
+
+    if (x && !y) {
+      System.out.println("조건 1 충족");
+    }
+    if ((x && !y) || (!x && y)) {
+      System.out.println("조건 2 충족");
+    }
+    if (x || y || z) {
+      System.out.println("적어도 하나는 참");
+    }
+    if (!x && !y && !y) {
+      System.out.println("모두 거짓");
+    }
+    // 퀴즈 실습
+
+        String date = "수요일"
+
+    switch (weekend) {
+      case "월"
+        System.out.println("java");
+        break;
+      case "화"
+        System.out.println("java");
+        break;
+      case "수"
+        System.out.println("java");
+        break;
+      case "목"
+        System.out.println("java");
+        break;
+      case "금"
+        System.out.println("java");
+        break;
+      }
+      //퀴즈 실습
  */

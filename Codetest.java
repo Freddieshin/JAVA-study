@@ -1,140 +1,263 @@
 public class Codetest {
   public static void main(String[] args) {
 
-    System.out.println(arry(new int[] {1, 2, 3, 4, 5}, 5)); // 출력: 4
-    System.out.println(arry(new int[] {1, 2, 3, 4, 5}, 6)); // 출력: -1
-  }
+    static String repeatChar(String str){
+      String result = "";
 
-  static int arry(int[] number, int target) {
-    for (int i = 0; i < number.length; i++) {
-      if (number[i] == target) {
-        return i;
+      for(int i=0; i < str.length(); i++){
+        char theChar = str.charAt(i);
+        result += "" + theChar + theChar;
       }
+
+      return result;
+
     }
-    return -1;
   }
 }
-
 /*강사님
-      static String getMiddleThree(String str){
-        String result = str;
-        // Monitor
-//        "Monitor".length()/2
-//        "hellowolr".length()/2
-        // substring()
-        if(str.length() >= 3){
-          int midIdx = str.length()/2;
 
-          result = str.substring(midIdx-1, midIdx+2);
+static String printAt(String str){
+
+        if(str.length() <= 1){
+            return str;
+        }
+
+        return str.charAt(0)+"@"+printAt(str.substring(1));
+
+// while 문으로  변형
+ static String printAt(String str){
+
+        int i=0;
+        String result = "";
+
+        if(str.length() <= i){
+            return str;
+        }
+
+        while(i < str.length()-1){
+            result += str.charAt(i) + "@";
+            i++;
+        }
+
+        result += str.charAt(i);
+
+        return result;
+
+
+//        if(str.length() <= 1){
+//            return str;
+//        }
+//
+//        return str.charAt(0)+"@"+printAt(str.substring(1));
+
+    }
+    }
+
+    static int speedRacer(int speed, boolean isHoliday){
+        //휴일인 경우
+        if(isHoliday == true && speed > 65 && speed <= 85   ){
+            return 100;
+        }
+        if(isHoliday == true && speed >= 86 ){
+            return 200;
+        }
+        if(isHoliday == true && speed <= 65){
+            return 0;
+        }
+
+        // 휴일이 아닌 경우
+        if(speed > 60 && speed <= 80   ){
+            return 100;
+        }
+        if(speed >= 81 ) {
+            return 200;
+        }else{
+            return 0;
+        }
+    }
+
+    static int speedRacer(int speed, boolean isHoliday){
+      int safeSpeed = 60;
+      int dangerSpeed = 80;
+      int tax = 0;
+
+      if(isHoliday){
+          safeSpeed += 5;
+          dangerSpeed += 5;
+      }
+      if(speed > dangerSpeed){
+          tax = 200;
+      }
+      if(speed <= safeSpeed){
+          tax = 0;
+      }
+      if(speed > safeSpeed && speed <= dangerSpeed){
+          tax = 100;
+      }
+      return tax;
+    }
+
+    public static boolean twoSumOne(int a, int b, int c) {
+        return (a + b == c) || (a + c == b) || (b + c == a);
+    }
+
+        public static boolean isOrdered(int first, int second, int third, boolean opt) {
+//        if(opt){
+//            return second < third;
+//        }
+//        return (first < second) && (second < third);
+
+        return opt ? second < third : (first < second) && (second < third);
+    }
+
+            System.out.println(twoSumOne(1, 2, 3)); // true
+    System.out.println(twoSumOne(3, 1, 2)); // true
+    System.out.println(twoSumOne(3, 2, 2)); // false
+  }
+
+  public static boolean twoSumOne(int a, int b, int c) {
+    return a + b == c || a + c == b || b + c == a;
+
+    System.out.println(secomDalcom(1)); // "1!"
+    System.out.println(secomDalcom(2)); // "2!"
+    System.out.println(secomDalcom(3)); // "새콤!"
+    System.out.println(secomDalcom(5)); // "달콤!"
+    System.out.println(secomDalcom(15)); // "새콤달콤!"
+    System.out.println(secomDalcom(13)); // "13!"
+  }
+
+          boolean secom = n % 3 == 0;
+        boolean dalcom = n % 5 == 0;
+
+        if(secom && dalcom) return "새콤달콤";
+        if(secom) return "새콤!";
+        if(dalcom) return "달콤!";
+        return n+"!";
+    }
+
+        public static int sumUnique(int a, int b, int c) {
+//        3개의 정수 인자 a, b, c가 주어졌을 때, 이들의 합을 반환하세요.
+//        하지만, 인자 중 하나가 다른 인자와 동일하면, 그 숫자는 합산에서 제외합니다.
+//                기본적으로 중복되지 않는 숫자만 합산합니다.
+        if( a == b && b == c) return 0;
+        if(a == b) return c;
+        if(a == c) return b;
+        if(b == c) return a;
+        return a + b + c;
+    }
+
+    static String repeatChar(String str){
+        String result = "";
+
+        for(int i=0; i < str.length(); i++){
+            char theChar = str.charAt(i);
+            result += "" + theChar + theChar;
         }
 
         return result;
 
-//        if(barking && (hour < 7 || hour > 20)){
-//            return "짖으면 안돼!!";
-//        }else{
-//            return "든든하군!";
-//        }
-
-        return barking && (hour < 7 || hour > 20) ? "짖으면 안돼!!" : "든든하군!";
-
-         int i =0;
-        while(true){
-            // i 의 값이 업데이트 되면서 해당 인덱스의 문자열을 탐색합니다.
-            int idx = str.indexOf("category:", i);
-            if(idx == -1){
-                break;
-            }
-
-            int startIdx = idx + 9;
-            int endIdx = str.indexOf(',', startIdx);
-
-            System.out.println(str.substring(startIdx, endIdx));
-
-            i = endIdx+1;
-        }
     }
-        System.out.println(arry(new int[] {1, 2, 3, 4, 5}, 5)); // 출력: 4
-    System.out.println(arry(new int[] {1, 2, 3, 4, 5}, 6)); // 출력: -1
+    ----------
+        System.out.println(printAt("hello")); // "h@e@l@l@o"
   }
 
-  static int arry(int[] number, int target) {
-    for (int i = 0; i < number.length; i++) {
-      if (number[i] == target) {
-        return i;
-      }
-    }
-    return -1;
---------------
-        public static String getMiddleThreeChars(String str) {
-      int length = str.length();
-
-      // 문자열 길이가 3보다 작으면 문자열 자체를 반환하고
-      if (length < 3) {
-        return str;
-      }
-
-      // 문자열 길이가 홀수인지 확인
-      else if (length % 2 != 0){
-        int middleIndex = length / 2;
-        return str.substring(middleIndex - 1, middleIndex + 2);
-      }
+  public static String printAt(String str) {
+    // 종료: 문자열의 길이가 1 이하인 경우, 그대로 반환
+    if (str.length() <= 1) {
       return str;
-      }
+    }
 
-    // static ==> 클래스 레벨의 필드와 메서드를 정의할때 사용하는 키워드
-    // 클래스레벨 ==> 인스턴스에 속하지 X
+    // 첫 문자와 재귀결과를 더해서 출력
+    return str.charAt(0) + "@" + printAt(str.substring(1));
 
-    System.out.println(dogsound(true, 6)); // "짖으면 안돼!!"
-    System.out.println(dogsound(true, 7)); // "든든하군!"
-    System.out.println(dogsound(false, 5)); // "든든하군!"
+      System.out.println(money(60, false)); // 출력: 0
+    System.out.println(money(61, false)); // 출력: 100
+    System.out.println(money(81, false)); // 출력: 200
+    System.out.println(money(65, true)); // 출력: 0
+    System.out.println(money(66, true)); // 출력: 100
+    System.out.println(money(86, true)); // 출력: 200
   }
 
-  public static String dogsound(boolean barkingDog, int hour) {
-    if (barkingDog && (hour < 7 || hour > 20)) {
-      return "짖으면 안돼!!";
+  public static int money(int speed, boolean isHoliday) {
+    int limit = 60;
+
+    if (isHoliday) {
+      limit += 5;
+    }
+
+    if (speed <= limit) {
+      return 0;
+    } else if (speed <= limit + 20) {
+      return 100;
     } else {
-      return "든든하군!";
-    }
-    // 변수 선언
-        String text =
-        "When organizing items, always label each group with the appropriate "
-            + "category. category: books, category: electronics, category: clothing, category: kitchenware, and so on.";
-    // 카테고리 문자열 찾기
-    Categories(text);
-  }
-
-  public static void Categories(String text) {
-    String target = "category: ";
-    int index = text.indexOf(target);
-
-    while (index != -1) {
-      int start = index + target.length();
-      int end = text.indexOf(",", start);
-      if (end == -1) {
-        end = text.indexOf(".", start);
-      }
-      if (end == -1) {
-        end = text.length();
-      }
-
-      String category = text.substring(start, end).trim();
-      System.out.println(category);
-
-      index = text.indexOf(target, start);
+      return 200;
     }
   }
 
-    String quiz = "물방울이 떨어지는 소리를 들으며 나는 한적한 숲속 오두막에서 책을 읽고 있었다.";
+    System.out.println(isCool(22)); // true (11의 배수)
+    System.out.println(isCool(23)); // true (11의 배수보다 1 큼)
+    System.out.println(isCool(24)); // false (11의 배수도 아니고, 11의 배수보다 1 크지도 않음)
+  }
 
-    // 문자열 순서대로 출력
-    for (int i = 0; i < quiz.length(); i++) {
-      System.out.println(quiz.charAt(i));
+  public static boolean isCool(int n) {
+    return n % 11 == 0 || n % 11 == 1;
+
+        System.out.println(secomDalcom(1)); // "1!"
+    System.out.println(secomDalcom(2)); // "2!"
+    System.out.println(secomDalcom(3)); // "새콤!"
+    System.out.println(secomDalcom(5)); // "달콤!"
+    System.out.println(secomDalcom(15)); // "새콤달콤!"
+    System.out.println(secomDalcom(13)); // "13!"
+  }
+
+  public static String secomDalcom(int n) {
+    if (n % 3 == 0 && n % 5 == 0) {
+      return "새콤달콤!";
+    } else if (n % 3 == 0) {
+      return "새콤!";
+    } else if (n % 5 == 0) {
+      return "달콤!";
+    } else {
+      return n + "!";
+    }
+  }
+}
+
+    System.out.println(sumUnique(1, 2, 3)); // 6
+    System.out.println(sumUnique(3, 2, 3)); // 2
+    System.out.println(sumUnique(3, 3, 3)); // 0
+  }
+
+  public static int sumUnique(int a, int b, int c) {
+    int sum = 0;
+
+    if (a != b && a != c) {
+      sum += a;
     }
 
-    System.out.println("\n반대로:");
+    if (b != a && b != c) {
+      sum += b;
+    }
 
-    // 문자열 거꾸로 출력
-    for (int i = quiz.length() - 1; i >= 0; i--) {
-      System.out.println(quiz.charAt(i));
-    }*/
+    if (c != a && c != b) {
+      sum += c;
+    }
+
+    return sum;
+  }
+
+      System.out.println(repeatChar("The")); // "TThhee"
+    System.out.println(repeatChar("AAbb")); // "AAAAbbbb"
+    System.out.println(repeatChar("Hi-There")); // "HHii--TThheerree"
+  }
+
+  public static String repeatChar(String input) {
+    StringBuilder result = new StringBuilder();
+
+    for (char c : input.toCharArray()) {
+      result.append(c).append(c);
+    }
+
+    return result.toString();
+  }
+*/

@@ -1,199 +1,66 @@
-import javax.naming.Name;
-
 public class Test {
   public static void main(String[] args) {
 
-    int count = 1;
+    //나를 추상화 하기
+    Person person = new Person("신재민", "ISTJ", 33);
+    person.name();
+    person.mbti();
+    person.age();
 
-    while (true) {
-      System.out.println("Count: " + count);
+    // 객체를 상호작용시키기
+    Student student = new Student();
+    student.beforestudy(student);
+    System.out.println(student.javalevel);
 
-      if (count == 10000) {
-        System.out.println("Count 10,000. Stop");
-        break;
-      }
+    student.study(student);
+    System.out.println(student.javalevel);
 
-      count++;
-    }
+    student.notstudy(student);
+    System.out.println(student.javalevel);
   }
 }
 
-/*
-    int i = 1;
+  /*
 
-    while (i <= 5) {
-    System.out.println("현재 i의 값: " + i);
-    i++;
-}
-
-    int i = 10;
-    while (i >= 0) {
-      System.out.println("현재 카운트 :" + i);
-      i--;
+   static int add(int a, int b) {
+      return a + b;
     }
-    System.out.println("카운트 종료");
-
-        int n = 100;
-    int sum = 0;
-    int i = 1;
-
-    while (i <= n) {
-      sum += i;
-      i++;
+    static int sub(int a, int b) {
+      return a - b;
     }
-    System.out.println(sum);
-    // 퀴즈
-
-    int sum = IntStream.rangeClosed(1, 100).sum();
-
-    System.out.println(sum);
-
-    int[] numbers = {5, 2, 9, 1, 7, 4, 6, 3, 8};
-    int i = 0;
-    int sum = 0;
-    while (i < numbers.length) {
-      sum += numbers[i];
-      i++;
+    static int mul(int a, int b) {
+      return a * b;
     }
-    System.out.println(sum / numbers.length);
-    // 퀴즈
-
-    int i = 0;
-    while (i <= 300) {
-    if (i % 3 == 0) // 3배수만 출력하기
-    System.out.println(i);
-    i++;
+    static int div(int a, int b) {
+      return a / b;
+// 함수실습
+      static void login(String email, String password) {
+// 파라미터 아규먼트 실습
     }
 
-        int[] numbers = {10, 5, 8, 20, 3, 15, 9, 2};
+  test2 test2 = new test2();
+     System.out.println(test2.b);
+     System.out.println(test2.good());
+     //  b는 test2에서 변수로 선언되어 ()를 않써도됨.
+//외부클래스 사용
+   test2.call();
+ // static 사용
 
-      int max = numbers[0];
-      int i = 1;
-      while(i<numbers.length){
-        if (numbers[i] > max) {
-          max = numbers[i];
-        }
-        i++;
-      }
-      System.out.println(max);
+     test2.quiz();
 
-      int[] numbers = {4, -2, 9, -7, 5, 1, -3, 6, -1, 8};
-      int positiveSum = 0;
-      int negativeSum = 0;
-      int i = 0;
-      while (i < numbers.length) {
-      if (numbers[i] > 0) {
-      positiveSum += numbers[i];
-      } else {
-      negativeSum += numbers[i];
-      }
-      i++;
-      }
-      System.out.println(positiveSum);
-      System.out.println(negativeSum);
+    System.out.println(test2.add(1, 2));
+    System.out.println(test2.sub(1, 2));
 
-      for(int i=1;i<=5;i++){ //초기식,조건식,증감식
-      System.out.println("현재 i의 값은="+i);
+        Person person1 = new Person("신재민", 01044866624, 100, 33);
+    Person person2 = new Person("Freddie", 01012346624, 100, 33);
+    Person person3 = new Person("김승조", 01012346624, 1, 40);
+    Person person4 = new Person("한재현", 01012346624, 2, 40);
 
-       int sum = 0;
-      for (int i = 1; i <= 100; i++) {
-      if (i % 2 == 0) {
-      sum += 1;
-      }
-      System.out.println(sum);
-    }
+        Person person3 = new Person("김승조", 01012346624, 1, 40);
+    person3.sayhello();
+    person3.saymoney();
 
-    // 피보나치 이론
-    int n = 10;
-    int[] fibArray = new int[n];
-
-    // 피보나치 수열의 첫 번째와 두 번째 항을 초기화
-    fibArray[0] = 1;
-    fibArray[1] = 1;
-
-    // for문을 사용하여 피보나치 수열을 계산하고 배열에 저장
-    for (int i = 2; i < n; i++) {
-      fibArray[i] = fibArray[i - 1] + fibArray[i - 2];
-    }
-
-    // 피보나치 수열이 저장된 배열 출력
-    System.out.print("피보나치 수열의 첫 " + n + "개 항: ");
-    for (int i = 0; i < n; i++) {
-    System.out.print(fibArray[i] + " ");
-
-    // 피보나치 배열의 또다른 방법 Arrays.setAll(arr, i -> (i < 2) ? 1 : arr[i - 1] + arr[i - 2]);
-
-    for (int i = 1; i < 10; i++)
-    for (int j = 1; j < 10; j++)
-    System.out.println("<" + i + "> x <" + j + "> = <" + i * j + ">");
-    // 구구단 만들기
-
-    for (int i = 19; i > 0; i--) {
-    for (int j = 19; j > 0; j--) {
-    System.out.printf("%d * %d = %d%n", i, j, i * j);
-    }
-    }
-    // 역방향 구구단
-    }
-
-    int number = 0;
-    while (number < 10) {
-    System.out.println("현재숫자:" + number);
-    if (number == 5) {
-    System.out.println("5가 되었습니다.");
-    break;
-    }
-    number++;
-    }
-    for (int i = 0; i < 10; i++) {
-    System.out.println("현재 i의 값은 = " + i);
-    for (int j = 0; j < 10; j++) {
-    System.out.println("현재 j의 값은 =" + j);
-    if (j == 5) {
-    break;
-    }
-    }
-    }
-
-    for (int i = 1; i <= 100; i++){
-    System.out.println("현재 i의 값은 = "+ i);
-    }
-    if (i == 50)
-    break;
-    for (int j = 2; i <= 100; j++){
-    ("현재 j의 값은 =" + j)
-    }
-    if (j == 80)
-    break;
-
-    int number = 0;
-
-    while (number < 10) {
-    number++;
-    if (number == 3) {
-    continue; // else 대신에 바로 continue 사용가능.
-    } else {
-    System.out.println("현재 숫자 : " + number);
-    }
-    }
-    // 퀴즈
-
-    int [] scores = {1,2,3,4,5,6};
-    int sum = 0;
-    double avg;
-    for (int i : scores){
-    sum += i;
-    }
-    avg = (double) sum / scores.length;
-    System.out.println("점수" + sum);
-    System.out.println("평균" + avg);
-
-    String[] arr = {"okay2", "asbds", "good2", "ormiiiii", "abcde"};
-
-    for (String str : arr) {
-    if (str.length() >= 5) {
-    System.out.println(str);
-    }
-    }
-    // 퀴즈
- */
+    Student student = new Student();
+    person3.teaching(student);
+    person3.cheating(student);
+   */

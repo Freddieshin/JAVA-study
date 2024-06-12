@@ -34,8 +34,8 @@ public class Student {
     if (javalevel <= 1) {
       javalevel--;
     }
-    System.out.println("레벨이 1감소 했습니다.");
-    System.out.println("현재 레벨은 = " + 0 + "입니다ㅠ 공부하세 레벨업하세요!");
+    System.out.println("1레벨이 떨어졌습니다.");
+    System.out.println("현재 레벨은 = " + javalevel + "입니다ㅠ 공부해서 레벨업하세요!");
   }
 }
 

@@ -1,53 +1,73 @@
 public class Person {
 
-  //---나를 추상화하기---
 
-  // 멤버 변수
-  String name;
-  String mbti;
-  int age;
-
-  // 생성자
-  public Person(String name, String mbti, int age) {
-    this.name = name;
-    this.mbti = mbti;
-    this.age = age;
-  }
-  // 메서드
-  public void name() {
-    System.out.println("제이름은" + name + "입니다");
-  }
-  public void mbti() {
-    System.out.println("mbti는" + mbti + "이고");
-  }
-  public void age() {
-    System.out.println("나이는" + age + "입니다");
-  }
 }
 
 /*
+ String name;
+  int age;
+  static final String gender = "남";
+  static final String MBTI = "ISTJ";
+  static final String HOBBY = "ppingpong";
+  static final String NOTEBOOK = "gram";
+
+  static final double PI = 3.13159;
+
+
+  // 생성자
+  public Person(String name, int age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  public void sayHello(){
+    System.out.println("Hello my name is " + this.name);
+  }
+  public void introduce(){
+    System.out.println("I am " + this.age + " years old.");
+  }
+}
+protected void testMethod(){
+  System.out.println("test");
+
+  private String name2;
   String name;
-    int phonenumber;
-    int money;
-    int age;
+  int age;
+  final String test;
+  int gold = 999999999;
+  static final double PI = 3.14159;
 
-    //생성자
-    public Person(String name, int phonenumber, int money, int age) {
-      this.name = name;
-      this.phonenumber = phonenumber;
-      this.money = money;
-      this.age = age;
-    }
-    public void sayhello(){
-      System.out.println("my name is" + name);
-    }
-    public void saymoney(){
-      System.out.println("내가 가진돈은" + money);
-    }
+  public Person(String name, int age) {
+    this.name = name;
+    this.age = age;
+    this.test = "123";
+  }
 
-    public void teaching(Student student) {
-      student.levelUp();
-      }
-      public void cheating(Student student){
-        student.levelDown();
-        */
+  private String checkAmount(int amount) {
+    if (amount > this.gold) {
+      return "요청하신 금액이 너무 큽니다.";
+    }
+    return "정상처리되었습니다.";
+  }
+
+  public String deposit(int amount) {
+    return checkAmount(amount);
+
+  }
+
+  public static void say() {
+    System.out.println("good");
+  }
+
+  public void sayHello() {
+    System.out.println("Hello my name is " + this.name);
+  }
+
+  public void introduce() {
+    System.out.println("I am " + this.age + " years old.");
+  }
+
+  protected void testMethod() {
+    System.out.println("test");
+  }
+ */
